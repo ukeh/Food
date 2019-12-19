@@ -1,0 +1,68 @@
+#footer {
+    background-color:rgb(40, 46, 49);
+    padding: 0 0 30px 0;
+    color: #eee;
+    font-size: 14px;
+    margin: 0px;
+  }
+  
+  #footer .footer-top {
+    padding: 60px 5%  0px 5%;
+  }
+  
+  #footer .footer-top .footer-info {
+      
+    padding-left: 10%;
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-info h3 {
+    font-size: 34px;
+    margin: 0 0 20px 0;
+    padding: 2px 0 2px 0;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercas
+  }
+  
+  #footer .footer-top .footer-info p {
+    font-size: 13px;
+    line-height: 24px;
+    margin-bottom: 0;
+    font-family: "Montserrat", sans-serif;
+    color: #ecf5ff;
+  }
+  
+
+ 
+  
+  #footer .footer-top h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+
+  
+  #footer .footer-top .footer-contact {
+     
+    padding-left: 16%;
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-contact p {
+    line-height: 26px;
+  }
+  
+  #footer .footer-top .footer-newsletter {
+    margin-bottom: 30px;
+  }
+  
+
+

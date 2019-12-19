@@ -1,0 +1,95 @@
+<div class="container login-container" (scroll)="onWindowScroll($event)">
+  <h1>{{restaurant.restaurantName}}</h1>
+  <hr>
+  <div class="row login-form-2">
+    <div class="col-sm-12 border divimg">
+      <img  [src]="transform('data:image/jpeg;base64,'+restaurant.image)" alt="Upload Image">
+    </div>
+  </div>
+
+  
+    <!-- <div class="row" *ngIf="elements.userType=='restaurant'"> -->
+      <input type="file" id="picture" name="picture" (change)="fileChange($event)" placeholder="Upload Image" accept="image/*"  *ngIf="elements.userType=='restaurant'" />
+      <!-- <div class="col-sm-12 div4 ">
+        <button  class="btn3">Upload Image</button></div>
+    </div> -->
+
+  <!-- <div class="row" *ngIf="elements.userType=='restaurant'">
+    <div class="col-sm-12 div4 ">
+      <button (click)="chooseFile();" class="btn3">Choose Image</button></div>
+  </div> -->
+  <div class="row" *ngIf="elements.userType=='restaurant'">
+    <div class="col-sm-12 div4 ">
+      <button type="button" (click)="addItem(false);" class="btn4">Add Item</button></div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container login-container">
+  <div class="row login-form-2">
+    <div class="col-sm-12 ">
+      <h2>Menu</h2>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover ">
+        <thead>
+          <tr>
+            <th><input type="button" [value]="flag==false ?'Show Image':'Hide Image'" class="btn2 btn  bg-primary"
+                (click)="buttonClick()"></th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Availble</th>
+            <th>Time</th>
+            <th *ngIf="elements.userType=='restaurant'">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngIf='restaurant.items && restaurant.items.length'>
+          <tr *ngFor="let item of restaurant.items">
+            <td><img *ngIf="flag"  [src]="transform('data:image/jpeg;base64,'+item.itemImage)"  alt="logo" [title]='item.itemName' class="itemImage"></td>
+            <!-- <td><img [src]='product.imageurl' alt=""></td> -->
+            <td>{{item.itemName}}</td>
+            <td>{{item.itemPrice  | currency:'INR'}}</td>
+            <td>{{item.itemAvailability}}</td>
+            <td>{{item.availableTime}}</td>
+            <td *ngIf="elements.userType=='restaurant'">
+              <button class="btn btnEdit" (click)="editItem(item._id,true)">Edit</button>
+              <br>
+              <button class="btn btnDelete" (click)="deleteItem(item._id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="container login-container">
+  <div class="row login-form-2">
+    <div class="col-sm-6 ">
+      <div class="form-group">
+        <h2>{{restaurant.location}} </h2>
+        <div class="star">
+          <rating [(ngModel)]="restaurant.totalRating" [max]="max" [readonly]="true" class="rating"></rating>
+        </div>
+        <p>Contact Number:{{restaurant.contactNumber}}</p>
+      </div>
+    </div>
+    <div class="col-sm-6 " *ngIf="elements.userType=='user'">
+      <p>Rate Us</p>
+      <div class="star">
+        <rating [(ngModel)]="value" [max]="max" [readonly]="flase" class="rating"></rating><br>
+        <input type="button" class=" btn btnSubmit" value="Submit" (click)="feedback(restaurant)" />
+      </div>
+    </div>
+    <div class="col-sm-6 " *ngIf="elements.userType=='admin'">
+      <div class="star">
+        <input type="button" class=" btn btnSubmit" value="Owner Info" (click)="infoUser(restaurant.ownerId);" />
+        <br>
+        <input type="button" class="btn btnDelete" value="Delete" (click)="deleteUser(restaurant.ownerId);" />
+      </div>
+    </div>
+  </div>
+</div>

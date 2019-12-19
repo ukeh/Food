@@ -1,0 +1,133 @@
+<div class="container login-container" (scroll)="onWindowScroll($event)">
+  <div class="row">
+    <div class="col-sm-12 login-form-1">
+      <h3>Registered Account</h3>
+      <hr>
+      <form [formGroup]="addForm" (ngSubmit)="update()">
+        <div class="form-group row">
+          <label for="restaurantName" class="col-sm-3  col-form-label">Restaurant Name</label>
+          <div class="col-sm-9 ">
+            <input type="text" class="form-control" formControlName="restaurantName" placeholder="Restaurant  Name *"
+              [ngClass]="{'is-invalid':submitted && f.restaurantName.errors}" />
+            <div *ngIf="submitted && f.restaurantName.errors" class="invalid-feedback">
+              <div *ngIf="f.restaurantName.errors.required">
+                This field is required.
+              </div>
+              <div *ngIf="f.restaurantName.errors.minlength">
+                Minimum 3 characters.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="registrationId" class="col-sm-3  col-form-label">Registration Id</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Registration Id *" formControlName="registrationId"
+              [ngClass]="{'is-invalid':submitted && f.registrationId.errors}" />
+            <div *ngIf="submitted && f.registrationId.errors" class="invalid-feedback">
+              <div *ngIf="f.registrationId.errors.required">
+                This field is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="address" class="col-sm-3  col-form-label">Address</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Address *" formControlName="address"
+              [ngClass]="{'is-invalid':submitted && f.address.errors}" />
+            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+              <div *ngIf="f.address.errors.required">
+                This field is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="loation" class="col-sm-3  col-form-label">Location</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Location *" formControlName="location"
+              [ngClass]="{'is-invalid':submitted && f.location.errors}" />
+            <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+              <div *ngIf="f.location.errors.required">
+                This field is required.
+              </div>
+              <div *ngIf="f.location.errors.minlength">
+                Minimum 3 characters.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="district" class="col-sm-3  col-form-label">District</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="District *" formControlName="district"
+              [ngClass]="{'is-invalid':submitted && f.district.errors}" />
+            <div *ngIf="submitted && f.district.errors" class="invalid-feedback">
+              <div *ngIf="f.district.errors.required">
+                This field is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ownerName" class="col-sm-3  col-form-label">Owner Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Owner Name *" formControlName="ownerName"
+              [ngClass]="{'is-invalid':submitted && f.ownerName.errors}" />
+            <div *ngIf="submitted && f.ownerName.errors" class="invalid-feedback">
+              <div *ngIf="f.ownerName.errors.required">
+                This field is required.
+              </div>
+              <div *ngIf="f.ownerName.errors.minlength">
+                Minimum 3 characters.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="contactNumber" class="col-sm-3  col-form-label">Contact Number
+          </label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" placeholder="Contact Number *" formControlName="contactNumber"
+              [ngClass]="{'is-invalid':submitted && f.contactNumber.errors}" />
+            <div *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback">
+              <div *ngIf="f.contactNumber.errors.required">
+                This field is required.
+              </div>
+              <div *ngIf="f.contactNumber.errors.pattern">
+                Please enter a valid phone number.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-sm-3  col-form-label">Email</label>
+          <div class="col-sm-9 ">
+            <input type="text" class="form-control" placeholder="Email *" formControlName="email"
+              [ngClass]="{'is-invalid':submitted && f.email.errors}" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">
+                This field is required.
+              </div>
+              <div *ngIf="f.email.errors.pattern">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-sm-3  col-form-label">Change Password</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" placeholder="Minimum length is 4" formControlName="password" />
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btnSubmit" value="Update" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

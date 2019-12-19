@@ -1,0 +1,19 @@
+<div class="container-fluid main" (scroll)="onWindowScroll($event)">
+  <!-- Control the column width, and how they should appear on different devices -->
+  <div class="row">
+    <div class="col-sm-7 div1">
+      <app-loginform *ngIf="active=='login'"></app-loginform>
+      <app-registerform   (activeChanged)="activeChangedHandler($event)" *ngIf="active=='register'"></app-registerform>
+      <app-signupform  (activeChanged)="activeChangedHandler($event)" *ngIf="active=='signup'"></app-signupform>
+
+    </div>
+    <div class="col-sm-5 div2">
+      <div class="col-sm-12 div3">
+        <app-login (activeChanged)="activeChangedHandler($event)" *ngIf="active!='login'"></app-login>
+        <app-signup   (activeChanged)="activeChangedHandler($event)" *ngIf="active!='signup'"></app-signup>
+        <app-register (activeChanged)="activeChangedHandler($event)" *ngIf="active!='register'"></app-register>
+      </div>
+
+    </div>
+  </div>
+</div>

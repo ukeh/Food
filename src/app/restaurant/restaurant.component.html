@@ -1,0 +1,53 @@
+<div class="container login-container" (scroll)="onWindowScroll($event)" *ngIf="elements.userType!='restaurant'">
+  <div class="row">
+    <div class="col-sm-12 login-form-1">
+      <form [formGroup]="registerForm" (click)="search();">
+        <div class="input-group">
+          <select formControlName="fieldType">
+            <option value="location">Location</option>
+            <option value="restaurantName">Restaurant</option>
+            <option value="itemName">Item Name</option>
+          </select>
+          <input type="text" class="form-control" formControlName="searchKey" id="search" placeholder="Search...">
+          <span class="input-group-btn">
+            <input type="submit" class="btn btn-primary btn1" value="Search">
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div *ngIf="restaurants && restaurants.length">
+  <div *ngFor="let r of restaurants" class="container login-container">
+    <div class="row login-form-2">
+      <div class="col-sm-5 border divimg">
+        <img [src]="transform('data:image/jpeg;base64,'+r.image)" alt="">
+      </div>
+      <div class="col-sm-7 ">
+        <div class="form-group">
+          <h1>{{r.restaurantName}}</h1>
+          <h2>{{r.location}} </h2>
+          <div class="star">
+            <rating [(ngModel)]="r.totalRating" [max]="max" [readonly]='true' class="rating"></rating>
+          </div>
+          <br>
+          <input type="button" class="btnSubmit" value="Today's Special" (click)="menu(r._id);" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container login-container">
+  <div class="row next">
+    <div class="col-sm-6 backward"> <input type="button" value="<" id="btn5" (click)="backward()" *ngIf="backwardMove" /> </div>
+    <div class="col-sm-6 forward"> <input type="button" value=">" id="btn5" (click)="forward()" *ngIf="forwardMove" /> </div>
+  </div>
+
+</div>
+

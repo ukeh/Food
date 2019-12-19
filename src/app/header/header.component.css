@@ -1,0 +1,39 @@
+header {
+    padding: 100px 0 300px 0;
+  }
+
+img{
+  width:70px;
+  height: 70px;
+    padding: 0;
+    margin-left: 10px;
+}
+
+
+.main{
+    padding:1px 30px 1px 2px;
+}
+h2{
+   color: rgb(246, 246, 246);
+   font-style: normal;
+   font-weight: bold;
+}
+
+
+.sticky{ 
+  position: fixed;
+  width: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.btnSubmit
+{
+  width: 150px;
+  margin-right: 5px;
+   
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+    color: lavender;
+  
+}

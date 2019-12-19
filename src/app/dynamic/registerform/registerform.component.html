@@ -1,0 +1,156 @@
+<div class="container login-container">
+    <div class="row">
+        <div class="col-sm-12 login-form-1">
+            <h3>Registration</h3>
+            <hr>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="restaurantName"
+                        placeholder="Restaurant  Name *"
+                        [ngClass]="{'is-invalid':submitted && f.restaurantName.errors}" />
+                    <div *ngIf="submitted && f.restaurantName.errors" class="invalid-feedback">
+                        <div *ngIf="f.restaurantName.errors.required">
+                            This field is required.
+                        </div>
+                        <div *ngIf="f.restaurantName.errors.minlength">
+                            Minimum 3 characters.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Registration Id *"
+                        formControlName="registrationId"
+                        [ngClass]="{'is-invalid':submitted && f.registrationId.errors}" />
+                    <div *ngIf="submitted && f.registrationId.errors" class="invalid-feedback">
+                        <div *ngIf="f.registrationId.errors.required">
+                            This field is required.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Address *" formControlName="address"
+                        [ngClass]="{'is-invalid':submitted && f.address.errors}" />
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required">
+                            This field is required.
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Location *" formControlName="location"
+                        [ngClass]="{'is-invalid':submitted && f.location.errors}" />
+                    <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                        <div *ngIf="f.location.errors.required">
+                            This field is required.
+                        </div>
+                        <div *ngIf="f.location.errors.minlength">
+                            Minimum 3 characters.
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="District *" formControlName="district"
+                        [ngClass]="{'is-invalid':submitted && f.district.errors}" />
+                    <div *ngIf="submitted && f.district.errors" class="invalid-feedback">
+                        <div *ngIf="f.district.errors.required">
+                            This field is required.
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Owner Name *" formControlName="ownerName"
+                        [ngClass]="{'is-invalid':submitted && f.ownerName.errors}" />
+                    <div *ngIf="submitted && f.ownerName.errors" class="invalid-feedback">
+                        <div *ngIf="f.ownerName.errors.required">
+                            This field is required.
+                        </div>
+                        <div *ngIf="f.ownerName.errors.minlength">
+                            Minimum 3 characters.
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Contact Number *"
+                        formControlName="contactNumber"
+                        [ngClass]="{'is-invalid':submitted && f.contactNumber.errors}" />
+                        <div *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback">
+                            <div *ngIf="f.contactNumber.errors.required">
+                                This field is required.
+                            </div>
+                            <div *ngIf="f.contactNumber.errors.pattern">
+                                Please enter a valid phone number.
+                            </div>
+                        </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email *" formControlName="email"
+                        [ngClass]="{'is-invalid':submitted && f.email.errors}" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">
+                            This field is required.
+                        </div>
+                        <div *ngIf="f.email.errors.pattern">
+                            Email must be a valid email address
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password *" formControlName="password"
+                        [ngClass]="{'is-invalid':submitted && f.password.errors}" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">
+                            Password is required.
+                        </div>
+                        <div *ngIf="f.password.errors.minlength">
+                            Minimum legth is 4.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password *"
+                        formControlName="confirmPassword"
+                        [ngClass]="{'is-invalid':submitted && f.confirmPassword.errors}" />
+                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                        <div *ngIf="f.confirmPassword.errors.required">
+                            This field is required.
+                        </div>
+                        <div
+                            *ngIf="registerForm.get('confirmPassword').errors &&  registerForm.get('confirmPassword').errors.ConfirmPassword">
+                            Passsword and Confirm Password didn't match.
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Register" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
